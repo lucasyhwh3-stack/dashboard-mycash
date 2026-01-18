@@ -1,138 +1,98 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import {
-    Home,
-    CreditCard,
-    Receipt,
-    Target,
-    Users,
-    ChevronLeft,
-    ChevronRight,
-    LogOut
-} from 'lucide-react';
+import { useLocation, Link } from 'react-router-dom';
+import { Home, CreditCard, ChevronLeft } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import Avatar from '../ui/Avatar';
+import imgMember1 from '../../assets/member1.png';
 
 const Sidebar = () => {
     const [isExpanded, setIsExpanded] = useState(true);
     const location = useLocation();
 
     const menuItems = [
-        { name: 'Home', icon: Home, path: '/' },
-        { name: 'Cartões', icon: CreditCard, path: '/cards' },
-        { name: 'Transações', icon: Receipt, path: '/transactions' },
-        { name: 'Metas', icon: Target, path: '/goals' },
-        { name: 'Família', icon: Users, path: '/family' },
+        { icon: Home, label: 'Home', path: '/' },
+        { icon: CreditCard, label: 'Cartões', path: '/cards' },
     ];
-
-    const toggleSidebar = () => setIsExpanded(!isExpanded);
 
     return (
         <aside
             className={cn(
-                "h-screen bg-neutral-0 border-r border-neutral-100 hidden lg:flex flex-col relative transition-all duration-500 ease-in-out z-50",
-                isExpanded ? "w-[280px]" : "w-[100px]"
+                "h-screen bg-neutral-0 border-r border-neutral-200 hidden lg:flex flex-col relative transition-all duration-300 ease-in-out z-50",
+                isExpanded ? "w-[300px] p-[32px]" : "w-[80px] p-[12px]"
             )}
         >
-            {/* Toggle Button */}
-            <button
-                onClick={toggleSidebar}
-                className="absolute -right-5 top-10 w-10 h-10 bg-neutral-0 border border-neutral-100 rounded-full flex items-center justify-center text-neutral-400 hover:text-neutral-900 shadow-sm z-[60] transition-all hover:scale-110 active:scale-95"
-            >
-                {isExpanded ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
-            </button>
-
-            {/* Logo Section */}
+            {/* Logo Section - Matching requested structure */}
             <div className={cn(
-                "py-40 px-32 flex items-center gap-12 transition-all duration-500",
-                !isExpanded && "px-0 justify-center"
+                "mb-[56px] flex items-center gap-[12px]",
+                !isExpanded && "justify-center"
             )}>
-                <div className="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-brand-primary/20 transform rotate-12">
-                    <span className="text-neutral-1000 font-black text-xl -rotate-12">M</span>
+                <div className="w-[140px] h-[30px] relative flex items-center">
+                    {/* Placeholder for complex logo from requested code */}
+                    <div className="w-[25px] h-[23px] bg-[#060A11] mr-[2px]" />
+                    <div className="w-[45px] h-[24px] bg-[#060A11] mr-[10px]" />
+                    <span className={cn(
+                        "font-bold text-[24px] text-neutral-1000 transition-all duration-300",
+                        !isExpanded ? "opacity-0 w-0" : "opacity-100"
+                    )}>
+                        Mycash+
+                    </span>
                 </div>
-                <h1 className={cn(
-                    "text-2xl font-bold text-neutral-1000 tracking-tight transition-all duration-500 overflow-hidden whitespace-nowrap",
-                    !isExpanded ? "w-0 opacity-0" : "w-auto opacity-100"
-                )}>
-                    Mycash<span className="text-brand-primary">+</span>
-                </h1>
             </div>
 
             {/* Navigation Menu */}
-            <nav className="flex-1 px-16">
-                <ul className="space-y-8">
-                    {menuItems.map((item) => {
-                        const isActive = location.pathname === item.path;
-                        return (
-                            <li key={item.path} className="relative group">
-                                <Link
-                                    to={item.path}
-                                    className={cn(
-                                        "flex items-center gap-16 p-14 transition-all duration-300 rounded-full",
-                                        isActive
-                                            ? "bg-neutral-1000 text-neutral-0 shadow-lg shadow-neutral-1000/10"
-                                            : "text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900",
-                                        !isExpanded && "justify-center p-14"
-                                    )}
-                                >
-                                    <item.icon
-                                        size={22}
-                                        className={cn(
-                                            "transition-colors",
-                                            isActive && "text-brand-primary"
-                                        )}
-                                    />
-                                    <span className={cn(
-                                        "font-bold text-sm transition-all duration-500 overflow-hidden whitespace-nowrap",
-                                        !isExpanded ? "w-0 opacity-0" : "w-auto opacity-100"
-                                    )}>
-                                        {item.name}
-                                    </span>
-                                </Link>
-
-                                {!isExpanded && (
-                                    <div className="absolute left-full ml-16 px-16 py-8 bg-neutral-900 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 z-[100] shadow-xl translate-x-3 group-hover:translate-x-0">
-                                        {item.name}
-                                    </div>
+            <nav className="flex-1 space-y-[8px]">
+                {menuItems.map((item) => {
+                    const isActive = location.pathname === item.path;
+                    return (
+                        <Link
+                            key={item.label}
+                            to={item.path}
+                            className={cn(
+                                "flex items-center gap-[8px] py-[12px] px-[16px] rounded-full transition-all duration-300 group",
+                                isActive
+                                    ? "bg-[#D7FF00] text-neutral-1100 shadow-sm"
+                                    : "text-neutral-1000 hover:bg-neutral-50"
+                            )}
+                        >
+                            <item.icon
+                                size={16}
+                                className={cn(
+                                    "transition-transform group-hover:scale-110",
+                                    isActive ? "text-neutral-1100" : "text-neutral-1100"
                                 )}
-                            </li>
-                        );
-                    })}
-                </ul>
+                            />
+                            {isExpanded && (
+                                <span className="font-semibold text-[18px] leading-[24px] tracking-[0.30px] whitespace-nowrap">
+                                    {item.label}
+                                </span>
+                            )}
+                        </Link>
+                    );
+                })}
             </nav>
 
-            {/* User Profile */}
+            {/* Bottom Member Section */}
             <div className={cn(
-                "p-20 mt-auto transition-all duration-500",
-                !isExpanded && "flex flex-col items-center gap-20"
+                "mt-auto flex flex-col gap-[12px]",
+                !isExpanded && "items-center"
             )}>
-                <button className={cn(
-                    "flex items-center gap-16 p-14 w-full text-feedback-error hover:bg-feedback-error/5 rounded-full transition-all group",
-                    !isExpanded && "justify-center"
-                )}>
-                    <LogOut size={22} className="group-hover:translate-x-1 transition-transform" />
-                    <span className={cn(
-                        "font-bold text-sm transition-all duration-500 overflow-hidden whitespace-nowrap",
-                        !isExpanded ? "w-0 opacity-0" : "w-auto opacity-100"
-                    )}>
-                        Sair da conta
-                    </span>
-                </button>
-
-                <div className={cn(
-                    "p-12 bg-neutral-100 rounded-[24px] flex items-center gap-12 transition-all duration-500",
-                    !isExpanded ? "bg-transparent p-0" : "hover:bg-neutral-200 cursor-pointer"
-                )}>
-                    <Avatar size="md" initials="LM" className="bg-neutral-900 text-white border-2 border-white shadow-md" />
-                    <div className={cn(
-                        "transition-all duration-500 flex flex-col overflow-hidden whitespace-nowrap",
-                        !isExpanded ? "w-0 opacity-0" : "w-auto opacity-100"
-                    )}>
-                        <p className="text-sm font-bold text-neutral-1000 leading-none">Lucas Marte</p>
-                        <p className="text-[10px] text-neutral-400 mt-2 font-medium">Conta Premium</p>
-                    </div>
+                <div data-member="pai" className="w-[24px] h-[24px] relative">
+                    <Avatar src={imgMember1} size="sm" className="w-full h-full border border-neutral-200" />
                 </div>
             </div>
+
+            {/* Toggle Button - Matching requested "icon-sidebar:close" style */}
+            <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className={cn(
+                    "absolute -right-[16px] top-[35px] w-[32px] h-[32px] bg-white rounded-full shadow-lg border border-neutral-100 flex items-center justify-center transition-all hover:scale-110 active:scale-95 group",
+                    !isExpanded && "right-[-16px] rotate-180"
+                )}
+            >
+                <div className="w-[16px] h-[16px] flex items-center justify-center overflow-hidden">
+                    <ChevronLeft size={16} className="text-neutral-1100 group-hover:-translate-x-1 transition-transform" />
+                </div>
+            </button>
         </aside>
     );
 };
