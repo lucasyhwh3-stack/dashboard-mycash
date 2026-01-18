@@ -25,7 +25,7 @@ export default {
                 success: '#10B981',
                 error: '#EF4444',
                 lime: {
-                    400: '#D4FF00',
+                    400: '#D7FF3B',
                 },
                 gray: {
                     50: '#F8F9FA',
@@ -34,6 +34,10 @@ export default {
                     600: '#6B7280',
                     900: '#1A1A1A',
                 },
+            },
+            width: {
+                'sidebar-expanded': '300px',
+                'sidebar-collapsed': '80px',
             },
             spacing: {
                 'xs': '8px',
