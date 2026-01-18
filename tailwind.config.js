@@ -6,15 +6,9 @@ export default {
     ],
     theme: {
         screens: {
-            'mobile': { 'max': '640px' },
-            'tablet': { 'min': '641px', 'max': '1023px' },
-            'desktop': { 'min': '1024px' },
-            // Standard Tailwind breakpoints for convenience
-            'sm': '640px',
-            'md': '768px',
-            'lg': '1024px',
-            'xl': '1280px',
-            '2xl': '1536px',
+            'md': '768px',   // Tablet
+            'lg': '1280px',  // Desktop
+            'xl': '1920px',  // Wide / 4K
         },
         extend: {
             colors: {
