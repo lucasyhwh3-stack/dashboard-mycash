@@ -18,6 +18,19 @@
     --color-feedback-warning: #F59E0B;
     --color-feedback-info: #0066FF;
 
+    /* Institution Colors */
+    --color-inst-nubank: #8A05BE;
+    --color-inst-inter: #FF7A00;
+    --color-inst-picpay: #21C25E;
+    --color-inst-bradesco: #CC092F;
+
+    /* Chart Colors */
+    --color-chart-1: var(--color-brand-primary);
+    --color-chart-2: var(--color-neutral-1000);
+    --color-chart-3: var(--color-neutral-400);
+    --color-chart-up: var(--color-feedback-success);
+    --color-chart-down: var(--color-feedback-error);
+
     /* Spacing Tokens (based on 4px grid) */
     --spacing-4: 4px;
     --spacing-8: 8px;

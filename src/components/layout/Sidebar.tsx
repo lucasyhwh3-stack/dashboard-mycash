@@ -10,12 +10,8 @@ import {
     ChevronRight,
     LogOut
 } from 'lucide-react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
+import { cn } from '../../utils/cn';
+import Avatar from '../ui/Avatar';
 
 const Sidebar = () => {
     const [isExpanded, setIsExpanded] = useState(true);
@@ -133,11 +129,7 @@ const Sidebar = () => {
                     "flex items-center gap-12 min-w-max",
                     !isExpanded && "justify-center"
                 )}>
-                    <div className="w-10 h-10 rounded-full bg-neutral-200 shrink-0 overflow-hidden border border-neutral-100">
-                        <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 flex items-center justify-center text-neutral-0 font-bold text-sm">
-                            LM
-                        </div>
-                    </div>
+                    <Avatar size="md" initials="LM" className="bg-gradient-to-br from-neutral-300 to-neutral-400 text-neutral-0" />
                     <div className={cn(
                         "transition-all duration-300 flex flex-col",
                         !isExpanded ? "opacity-0 w-0 overflow-hidden" : "opacity-100"
