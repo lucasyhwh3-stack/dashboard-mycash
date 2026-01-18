@@ -3,7 +3,7 @@
 ## Progresso
 
 - [x] **PROMPT 0**: Análise e Planejamento Inicial
-- [ ] **PROMPT 1**: Estrutura Base
+- [x] **PROMPT 1**: Estrutura Base
 - [ ] **PROMPT 2**: Layout Desktop
 - [ ] **PROMPT 3**: Sistema de Design
 - [ ] **PROMPT 4**: Componentes Dashboard
