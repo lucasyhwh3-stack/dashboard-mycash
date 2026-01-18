@@ -17,26 +17,24 @@ const Sidebar = () => {
     return (
         <aside
             className={cn(
-                "h-screen bg-neutral-0 border-r border-neutral-200 hidden lg:flex flex-col relative transition-all duration-300 ease-in-out z-50",
+                "h-screen bg-neutral-0 border-r border-neutral-300 hidden lg:flex flex-col relative transition-all duration-300 ease-in-out z-50",
                 isExpanded ? "w-[300px] p-[32px]" : "w-[80px] p-[12px]"
             )}
         >
-            {/* Logo Section - Matching requested structure */}
+            {/* Logo Section */}
             <div className={cn(
-                "mb-[56px] flex items-center gap-[12px]",
+                "mb-[56px] flex items-center h-[30px]",
                 !isExpanded && "justify-center"
             )}>
-                <div className="w-[140px] h-[30px] relative flex items-center">
-                    {/* Placeholder for complex logo from requested code */}
-                    <div className="w-[25px] h-[23px] bg-[#060A11] mr-[2px]" />
-                    <div className="w-[45px] h-[24px] bg-[#060A11] mr-[10px]" />
-                    <span className={cn(
-                        "font-bold text-[24px] text-neutral-1000 transition-all duration-300",
-                        !isExpanded ? "opacity-0 w-0" : "opacity-100"
-                    )}>
-                        Mycash+
-                    </span>
-                </div>
+                <span className={cn(
+                    "font-bold text-[24px] text-neutral-1000 tracking-[-0.02em] whitespace-nowrap overflow-hidden transition-all duration-300",
+                    !isExpanded ? "w-0 opacity-0" : "w-auto opacity-100"
+                )}>
+                    Mycash+
+                </span>
+                {!isExpanded && (
+                    <span className="font-bold text-[24px] text-neutral-1000 tracking-[-0.02em]">M+</span>
+                )}
             </div>
 
             {/* Navigation Menu */}
@@ -50,8 +48,8 @@ const Sidebar = () => {
                             className={cn(
                                 "flex items-center gap-[8px] py-[12px] px-[16px] rounded-full transition-all duration-300 group",
                                 isActive
-                                    ? "bg-[#D7FF00] text-neutral-1100 shadow-sm"
-                                    : "text-neutral-1000 hover:bg-neutral-50"
+                                    ? "bg-[#D7FF00] text-neutral-1100 shadow-sm font-semibold"
+                                    : "text-neutral-1100 hover:bg-neutral-50 font-semibold"
                             )}
                         >
                             <item.icon
