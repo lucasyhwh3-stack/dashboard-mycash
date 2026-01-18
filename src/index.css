@@ -1,16 +1,11 @@
+@import './styles/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-primary: #0066FF;
-  --color-success: #10B981;
-  --color-error: #EF4444;
-  --color-sidebar-active: #D4FF00;
-  --color-bg-page: #F8F9FA;
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #6B7280;
-  --color-border: #E5E7EB;
+  /* Legacy variables replaced by tokens.css imports */
 }
 
 body {

@@ -1,0 +1,49 @@
+:root {
+    /* Brand Tokens */
+    --color-brand-primary: #DAFD01;
+    --color-brand-primary-hover: #C5E601;
+
+    /* Neutral Tokens */
+    --color-neutral-0: #FFFFFF;
+    --color-neutral-100: #F3F4F6;
+    --color-neutral-200: #E5E7EB;
+    --color-neutral-400: #94A3B8;
+    --color-neutral-600: #64748B;
+    --color-neutral-900: #0F172A;
+    --color-neutral-1000: #000000;
+
+    /* Feedback Tokens */
+    --color-feedback-success: #10B981;
+    --color-feedback-error: #E01A4F;
+    --color-feedback-warning: #F59E0B;
+    --color-feedback-info: #0066FF;
+
+    /* Spacing Tokens (based on 4px grid) */
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 20px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+
+    /* Border Radius */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 1000px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    /* Layout */
+    --sidebar-width-expanded: 300px;
+    --sidebar-width-collapsed: 80px;
+    --header-height: 80px;
+}
